@@ -18,7 +18,7 @@ function Registry(){
     }
 
     useEffect(() => {
-        if(textInput.length> 10) setError(true);
+        if(textInput.length> 30) setError(true);
         else setError(false)
     }, [textInput])
 
@@ -39,19 +39,19 @@ function Registry(){
 
     return (
         <div class='Registry-div'>
-            <h1>Registry</h1>
-            <Link to="/" class='Class-home'>Click here to go to home</Link>
             <form onSubmit={addItem}>
-                <label>text inputs: 
-                    <input type="text" value={textInput} onChange={(e) => setTextInput(e.target.value)}/>
+                <h1>Task List</h1>
+                {/* <Link to="/" class='Class-home'>Goto home</Link> */}
+                <label>
+                    <input type="text" placeholder="Add/Update Item" value={textInput} onChange={(e) => setTextInput(e.target.value)}/>
                 </label>   
-                <input type="submit" value="Submit"/>
+                <input class="Update-button" type="submit" value="Submit"/>
             </form> 
             {error ? <span style={{color: "red"}}>Only 30 characters allowed</span> : null}           
             {
                 registryData.map((item, indexPersonal)=> {
                     return (
-                        <li key={indexPersonal}>{item} <button onClick={() => removeItem(indexPersonal)}>Remove</button> <button onClick={() => editItem(indexPersonal)}>Update</button></li>
+                        <li class="List-item" key={indexPersonal}> {item} <button onClick={() => editItem(indexPersonal)}>&#9998;</button><button onClick={() => removeItem(indexPersonal)}>&#10008;</button></li>
                     )
                 })
             }
