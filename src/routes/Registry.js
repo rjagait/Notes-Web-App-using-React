@@ -38,9 +38,9 @@ function Registry(){
     }
 
     return (
-        <div>
+        <div class='Registry-div'>
             <h1>Registry</h1>
-            <Link to="/">Click here to go to home</Link>
+            <Link to="/" class='Class-home'>Click here to go to home</Link>
             <form onSubmit={addItem}>
                 <label>text inputs: 
                     <input type="text" value={textInput} onChange={(e) => setTextInput(e.target.value)}/>
